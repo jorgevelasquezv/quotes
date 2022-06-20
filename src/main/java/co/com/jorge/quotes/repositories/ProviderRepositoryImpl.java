@@ -37,10 +37,10 @@ public class ProviderRepositoryImpl implements Repository<Provider>{
 
     @Override
     public Provider find(Provider provider) throws SQLException {
-        Long id = provider.getIdProvider();
+        String username = provider.getUsername();
         Provider foundProvider = null;
-        try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM providers as p WHERE p.id_providers=?")){
-            preparedStatement.setLong(1, id);
+        try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM providers as p WHERE p.username=?")){
+            preparedStatement.setString(1, username);
             try (ResultSet resultSet = preparedStatement.executeQuery()){
                 if (resultSet.next()){
                     foundProvider = createProvider(resultSet);

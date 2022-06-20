@@ -1,6 +1,7 @@
 package co.com.jorge.quotes;
 
 import co.com.jorge.quotes.models.Admin;
+import co.com.jorge.quotes.models.Provider;
 import co.com.jorge.quotes.services.CatalogService;
 import co.com.jorge.quotes.services.Service;
 
@@ -15,6 +16,9 @@ public class EjemploJDBC {
         System.out.println("============== Listar ==============");
         Admin admin = servicio.adminFindByUsername("admin");
         System.out.println(admin);
+
+        Provider provider = servicio.providerFindByUsername("provider");
+        System.out.println(provider);
 //        System.out.println(admin.getUsername());
 //        System.out.println(admin.getPassword());
 

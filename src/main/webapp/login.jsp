@@ -1,4 +1,7 @@
--<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%  String admin = request.getParameter("admin");
+    String provider = request.getParameter("provider"); %>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -28,10 +31,12 @@
                         />
                     </div>
                     <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                        <form action="/quotes/login" method="post">
+                        <% if(admin != null){%> <form  action= "/quotes/login-admin" method = "post"> <%}else{%> <form action= "/quotes/login-provider" method = "post"><%}; %> 
                             
                             <div class="divider d-flex align-items-center my-4 justify-content-center">
-                                <h3 class="text-center fw-bold mx-3 mb-0">Login</h3>
+                                <h3 class="text-center fw-bold mx-3 mb-0"><% if(admin != null){
+                                    %><%= admin%><%}else{
+                                        %><%=provider%><%};%></h3>
                             </div>
 
                             <!-- Username input -->
