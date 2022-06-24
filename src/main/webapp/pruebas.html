@@ -47,7 +47,7 @@
                     </li> 
                     <li class="nav-item">
                         <form class="nav-link"  method="post" action="admin.jsp">
-                            <input class="text-white bg-transparent border-0" type="submit" value="Request Products" name="request" />
+                            <input class="text-white bg-transparent border-0" type="submit" value="Request Products" name="requestProduct" />
                         </form>
                     </li>
                     <li class="nav-item">
@@ -75,7 +75,7 @@
 </header>
 
         <section class="container mt-5">
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation">
                 <div class="col-md-4 position-relative">
                     <label for="name" class="form-label"
                         >Product</label
@@ -124,14 +124,14 @@
                     </div>
                 </div>
                 <div class="col-md-4 position-relative">
-                    <label for="request" class="form-label"
+                    <label for="requestProduct" class="form-label"
                         >Request</label>
                     <input
                         type="number"
                         class="form-control"
-                        id="request"
-                        name="request"
-                        value="${param.request}"
+                        id="requestProduct"
+                        name="requestProduct"
+                        value="${param.requestProduct}"
                         required
                     />
                     <div class="invalid-tooltip">
@@ -143,7 +143,7 @@
                         >Initial Date</label
                     >
                     <input
-                        type="datetime-local"
+                        type="date"
                         class="form-control"
                         id="initialDate"
                         name="initialDate"
@@ -177,6 +177,130 @@
                 </div>
             </form>
         </section>
+
+        <section class="container mt-5">
+            <table class="table table-hover">
+                <caption>Check Offers</caption>
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                    <th scope="col">Price Unit</th>
+                    <th scope="col">Send Offer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>
+                        <form method="post" action="/pruebas.html">
+                            <input type="number" class="form-control" placeholder="Unit Price For Offer" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            
+                            <td>
+                                <input type="submit" class="btn btn-outline-info" value="Send" id="button-addon2" />
+                            </td>
+                        </form>
+                    </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <footer
+            class="text-center text-white w-100"
+            style="background-color: var(--background-ligth)"
+        >
+            <!-- Grid container -->
+            <div class="container pt-4">
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <!-- Facebook -->
+                    <a
+                        class="btn btn-link btn-floating btn-lg text-white m-1"
+                        href="#!"
+                        role="button"
+                        data-mdb-ripple-color="dark"
+                        ><i class="fab fa-facebook-f"></i
+                    ></a>
+
+                    <!-- Twitter -->
+                    <a
+                        class="btn btn-link btn-floating btn-lg text-white m-1"
+                        href="#!"
+                        role="button"
+                        data-mdb-ripple-color="dark"
+                        ><i class="fab fa-twitter"></i
+                    ></a>
+
+                    <!-- Google -->
+                    <a
+                        class="btn btn-link btn-floating btn-lg text-white m-1"
+                        href="#!"
+                        role="button"
+                        data-mdb-ripple-color="dark"
+                        ><i class="fab fa-google"></i
+                    ></a>
+
+                    <!-- Instagram -->
+                    <a
+                        class="btn btn-link btn-floating btn-lg text-white m-1"
+                        href="#!"
+                        role="button"
+                        data-mdb-ripple-color="dark"
+                        ><i class="fab fa-instagram"></i
+                    ></a>
+
+                    <!-- Linkedin -->
+                    <a
+                        class="btn btn-link btn-floating btn-lg text-white m-1"
+                        href="#!"
+                        role="button"
+                        data-mdb-ripple-color="dark"
+                        ><i class="fab fa-linkedin"></i
+                    ></a>
+                    <!-- Github -->
+                    <a
+                        class="btn btn-link btn-floating btn-lg text-white m-1"
+                        href="#!"
+                        role="button"
+                        data-mdb-ripple-color="dark"
+                        ><i class="fab fa-github"></i
+                    ></a>
+                </section>
+                <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div
+                class="text-center text-white p-3"
+                style="background-color: var(--background)"
+            >
+                © 2020 Copyright:
+                <a class="text-white" href="https://github.com/jorgevelasquezv/quotes"
+                    >Jorge Velasquez github.com</a
+                >
+            </div>
+            <!-- Copyright -->
+        </footer>
+
 
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

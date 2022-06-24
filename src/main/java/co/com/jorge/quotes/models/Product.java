@@ -13,19 +13,19 @@ public class Product implements Serializable {
 
     private int stock;
 
-    private Long idCategory;
+    private Category category;
 
     private Date registryDate;
 
     public Product() {
     }
 
-    public Product(Long idProduct, String name, Long price, int stock, Long idCategory, Date registryDate) {
+    public Product(Long idProduct, String name, Long price, int stock, Category category, Date registryDate) {
         this.idProduct = idProduct;
         this.name = name;
         this.price = price;
         this.stock = stock;
-        this.idCategory = idCategory;
+        this.category = category;
         this.registryDate = registryDate;
     }
 
@@ -61,12 +61,12 @@ public class Product implements Serializable {
         this.stock = stock;
     }
 
-    public Long getIdCategory() {
-        return idCategory;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setIdCategory(Long idCategory) {
-        this.idCategory = idCategory;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Date getRegistryDate() {
@@ -85,7 +85,7 @@ public class Product implements Serializable {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", stock=" + stock +
-                ", idCategory=" + idCategory +
+                ", category=" + category.getName() +
                 '}';
     }
 }

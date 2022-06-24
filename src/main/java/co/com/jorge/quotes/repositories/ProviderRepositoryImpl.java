@@ -51,6 +51,11 @@ public class ProviderRepositoryImpl implements Repository<Provider>{
     }
 
     @Override
+    public Provider findByName(Provider provider) throws SQLException {
+        return null;
+    }
+
+    @Override
     public Provider save(Provider provider) throws SQLException {
         String sql = null;
         if (provider.getIdProvider() != null && provider.getIdProvider() > 0){
@@ -72,7 +77,7 @@ public class ProviderRepositoryImpl implements Repository<Provider>{
             if (provider.getIdProvider() == null){
                 try (ResultSet resultSet = preparedStatement.getGeneratedKeys()){
                     if (resultSet.next()){
-                        provider.setIdProvider(resultSet.getLong("id_providers"));
+                        provider.setIdProvider(resultSet.getLong(1));
                     }
                 }
             }

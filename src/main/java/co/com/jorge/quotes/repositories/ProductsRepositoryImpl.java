@@ -1,5 +1,6 @@
 package co.com.jorge.quotes.repositories;
 
+import co.com.jorge.quotes.models.Category;
 import co.com.jorge.quotes.models.Product;
 
 import java.sql.*;
@@ -9,6 +10,8 @@ import java.util.List;
 public class ProductsRepositoryImpl implements Repository<Product> {
 
     private Connection conn;
+
+    private CategoryRepositoryImpl categoryRepository;
 
     public ProductsRepositoryImpl() {
     }
@@ -27,7 +30,8 @@ public class ProductsRepositoryImpl implements Repository<Product> {
         List<Product> list = new ArrayList<>();
 
         try (Statement statement = conn.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT * FROM products");){
+             ResultSet resultSet = statement.executeQuery("SELECT p.*, c.name as category FROM products as p " +
+                     "INNER JOIN categories as c ON (p.id_categories = c.id_category) ");){
             while (resultSet.next()){
                 list.add(createProduct(resultSet));
             }
@@ -37,11 +41,25 @@ public class ProductsRepositoryImpl implements Repository<Product> {
 
     @Override
     public Product find(Product product) throws SQLException {
-        Long id = product.getIdCategory();
+        Category category = product.getCategory();
         Product foundProduct = null;
         try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM products as p WHERE p.id_products=?")){
-            preparedStatement.setLong(1, id);
+            preparedStatement.setLong(1, category.getIdCategory());
             try (ResultSet resultSet = preparedStatement.executeQuery()){
+                if (resultSet.next()){
+                    foundProduct = createProduct(resultSet);
+                }
+            }
+        }
+        return foundProduct;
+    }
+
+    @Override
+    public Product findByName(Product product) throws SQLException {
+        Product foundProduct = null;
+        try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM products as p WHERE p.name=?")){
+            preparedStatement.setString(1, product.getName());
+            try(ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()){
                     foundProduct = createProduct(resultSet);
                 }
@@ -62,7 +80,7 @@ public class ProductsRepositoryImpl implements Repository<Product> {
             preparedStatement.setString(1, product.getName());
             preparedStatement.setLong(2, product.getPrice());
             preparedStatement.setInt(3, product.getStock());
-            preparedStatement.setLong(4, product.getIdCategory());
+            preparedStatement.setString(4, product.getCategory().getName());
             if (product.getIdProduct() != null && product.getIdProduct() > 0){
                 preparedStatement.setLong(5, product.getIdProduct());
             }else {
@@ -72,7 +90,7 @@ public class ProductsRepositoryImpl implements Repository<Product> {
             if (product.getIdProduct() == null){
                 try (ResultSet resultSet = preparedStatement.getGeneratedKeys()){
                     if (resultSet.next()){
-                        product.setIdProduct(resultSet.getLong("id_products"));
+                        product.setIdProduct(resultSet.getLong(1));
                     }
                 }
             }
@@ -95,7 +113,13 @@ public class ProductsRepositoryImpl implements Repository<Product> {
         product.setPrice(resultSet.getLong("price"));
         product.setStock(resultSet.getInt("stock"));
         product.setRegistryDate(resultSet.getDate("registry_date"));
-        product.setIdCategory(resultSet.getLong("id_category"));
+        Category category = new Category();
+        category.setIdCategory(resultSet.getLong("id_categories"));
+        try{
+        category.setName(resultSet.getString("category"));
+        }catch (SQLException e){
+        }
+        product.setCategory(category);
         return product;
     }
 }

@@ -51,6 +51,11 @@ public class AdminRepositoryImpl implements Repository<Admin> {
     }
 
     @Override
+    public Admin findByName(Admin admin) throws SQLException {
+        return null;
+    }
+
+    @Override
     public Admin save(Admin admin) throws SQLException {
         String sql = null;
         if (admin.getIdAdmin() != null && admin.getIdAdmin() > 0){
@@ -68,7 +73,7 @@ public class AdminRepositoryImpl implements Repository<Admin> {
             if (admin.getIdAdmin() == null){
                 try (ResultSet resultSet = preparedStatement.getGeneratedKeys()){
                     if (resultSet.next()){
-                        admin.setIdAdmin(resultSet.getLong("id_admins"));
+                        admin.setIdAdmin(resultSet.getLong(1));
                     }
                 }
             }

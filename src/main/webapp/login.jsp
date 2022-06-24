@@ -15,10 +15,17 @@
             crossorigin="anonymous"
         />
 
+        <link rel="stylesheet" href="./assets/css/request.css" />
+
+        <script
+            src="https://kit.fontawesome.com/9092a5f080.js"
+            crossorigin="anonymous"
+        ></script>
+
         <title>Login</title>
     </head>
-    <body>
-        <section class="vh-100">
+    <body class="min-vh-100">
+        <section style="min-height: 78vh;">
             <div class="container-fluid h-custom">
                 <div
                     class="row d-flex justify-content-center align-items-center h-100"
@@ -46,7 +53,7 @@
                                     id="username"
                                     name="username"
                                     class="form-control form-control-lg"
-                                    placeholder="Enter a valid email address"
+                                    placeholder="Enter username"
                                     required
                                 />
                                 <label class="form-label" for="username"
@@ -91,17 +98,18 @@
                     </div>
                 </div>
             </div>
-            <div
-                class="bottom-0 position-absolute w-100 py-4 px-4 px-xl-5 bg-primary"
-            >
-                <!-- Copyright -->
-                <div class="text-white mb-3 mb-md-0">
-                    Copyright © 2020. All rights reserved.
-                </div>
-                <!-- Copyright -->
-            </div>
-        </section>
+            
 
+<%--             
+            <div
+                class="bottom-0 position-absolute w-100 py-4 px-4 px-xl-5"
+            >
+            </div> --%>
+
+        </section>
+            
+
+                <jsp:include page="./WEB-INF/templates/footer.html" />
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

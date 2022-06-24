@@ -1,7 +1,6 @@
 package co.com.jorge.quotes.controllers;
 
-import co.com.jorge.quotes.models.Admin;
-import co.com.jorge.quotes.models.Provider;
+import co.com.jorge.quotes.models.*;
 import co.com.jorge.quotes.services.CatalogService;
 import co.com.jorge.quotes.services.Service;
 import jakarta.servlet.ServletException;
@@ -12,7 +11,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet({"/login-admin", "/login-provider"})
 public class LoginServlet extends HttpServlet {
@@ -22,7 +23,9 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = req.getSession(true);
 
-        Service service = new CatalogService();
+        Connection conn = (Connection) req.getAttribute("conn");
+
+        Service service = new CatalogService(conn);
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         resp.setContentType("text/html;charset=UTF-8");
@@ -34,9 +37,13 @@ public class LoginServlet extends HttpServlet {
         Boolean isAdmin = path.endsWith("/login-admin");
         if (isAdmin){
             Admin admin = service.adminFindByUsername(username);
+            List<Product> productList = service.productFindAll();
+            List<Offer> offerList = service.offertFindAll();
             if (admin.getPassword().equals(password) ){
                 session.setAttribute("rol", "admin");
-                resp.sendRedirect(req.getContextPath() + "/admin.jsp");
+                session.setAttribute("stock", productList);
+                session.setAttribute("offers", offerList);
+                resp.sendRedirect(req.getContextPath() + "/request.jsp");
             }else {
                 resp.sendRedirect(req.getContextPath() + "/login-admin");
             }
@@ -46,7 +53,9 @@ public class LoginServlet extends HttpServlet {
             Provider provider = service.providerFindByUsername(username);
             if (provider.getPassword().equals(password)){
                 session.setAttribute("rol", "provider");
-                resp.sendRedirect(req.getContextPath() + "/admin.jsp");
+                List<RequestProduct> requestProductList = service.requestProductFindAll();
+                session.setAttribute("requests", requestProductList);
+                resp.sendRedirect(req.getContextPath() + "/request.jsp");
             }else {
                 resp.sendRedirect(req.getContextPath() + "/login-provider");
             }
@@ -54,4 +63,4 @@ public class LoginServlet extends HttpServlet {
 
 
     }
-    {}}
+}

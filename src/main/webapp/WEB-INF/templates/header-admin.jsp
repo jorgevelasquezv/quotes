@@ -22,35 +22,53 @@
             <section class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"
-                            >Home</a
-                        >
+                        <form class="nav-link"  method="post" action="request.jsp">
+                            <input class="text-white bg-transparent border-0" type="submit" value="Home" name="home" />
+                        </form>
                     </li>
-                    <% if(rol.equals("admin")){ %>  
+                    <% if(rol != null && rol.equals("admin")){ %>  
                     <li class="nav-item">
-                        <form class="nav-link"  method="post" action="admin.jsp">
+                        <form class="nav-link"  method="post" action="request.jsp">
                             <input class="text-white bg-transparent border-0" type="submit" value="Request Products" name="request" />
                         </form>
                     </li>
-                    <% } %>
+                    
                     <li class="nav-item">
-                        <form class="nav-link"  method="post" action="/quotes/offers">
+                        <form class="nav-link"  method="post" action="request.jsp">
                             <input class="text-white bg-transparent border-0" type="submit" value="Check Offers" name="offers" />
                         </form>
                     </li>
-                    <% if(rol.equals("admin")){ %>
+
+                    <% }else{ %>
+                    
                     <li class="nav-item">
-                        <form class="nav-link"  method="post" action="/quotes/stock">
+                        <form class="nav-link"  method="post" action="request.jsp">
+                            <input class="text-white bg-transparent border-0" type="submit" value="Check Requests" name="checkRequest" />
+                        </form>
+                    </li>
+
+                    <% } %>
+
+                    <% if(rol != null && rol.equals("admin")){ %>
+                    <li class="nav-item">
+                        <form class="nav-link"  method="post" action="request.jsp">
                             <input class="text-white bg-transparent border-0" type="submit" value="Stock Products" name="stock" />
                         </form>
                     </li>
                     <% }else{ %>
                     <li class="nav-item">
-                        <form class="nav-link"  method="post" action="/quotes/submit-offers">
+                        <form class="nav-link"  method="post" action="request.jsp">
                             <input class="text-white bg-transparent border-0" type="submit" value="Submit Offers" name="submitOffers" />
                         </form>
                     </li>
                     <% } %>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <form class="nav-link" method="post" action="request.jsp">
+                            <input class="text-white bg-transparent border-0" type="submit" value="Logout" name="logout" />
+                        </form>
+                    </li>
                 </ul>
             </section>
         </article>

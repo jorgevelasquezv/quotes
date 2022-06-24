@@ -1,17 +1,26 @@
 package co.com.jorge.quotes;
 
 import co.com.jorge.quotes.models.Admin;
+import co.com.jorge.quotes.models.Product;
 import co.com.jorge.quotes.models.Provider;
 import co.com.jorge.quotes.services.CatalogService;
 import co.com.jorge.quotes.services.Service;
+import co.com.jorge.quotes.util.DataBaseConnectionDS;
 
+import javax.naming.NamingException;
+import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Date;
 
 public class EjemploJDBC {
     public static void main(String[] args) throws SQLException {
 
-        Service servicio = new CatalogService();
+
+        Service servicio = null;
+        try(Connection conn = DataBaseConnectionDS.getConnection();) {
+            servicio = new CatalogService(conn);
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        }
 
         System.out.println("============== Listar ==============");
         Admin admin = servicio.adminFindByUsername("admin");
@@ -19,6 +28,21 @@ public class EjemploJDBC {
 
         Provider provider = servicio.providerFindByUsername("provider");
         System.out.println(provider);
+
+        System.out.println("============== Listar Productos ==============");
+        servicio.productFindAll().forEach(System.out::println);
+
+        System.out.println("============== Listar Solicitudes ==============");
+        servicio.requestProductFindAll().forEach(System.out::println);
+
+        System.out.println("============== Buscar Productoo Por Nombre ==============");
+        Product product = servicio.productFindByName("Escritorio En L");
+        System.out.println(product);;
+
+        System.out.println("============== Listar Offers ==============");
+        servicio.offertFindAll().forEach(System.out::println);
+
+
 //        System.out.println(admin.getUsername());
 //        System.out.println(admin.getPassword());
 

@@ -51,6 +51,12 @@ public class CategoryRepositoryImpl implements Repository<Category>{
         return foundCategory;
     }
 
+
+    @Override
+    public Category findByName(Category category) throws SQLException {
+        return null;
+    }
+
     @Override
     public Category save(Category category) throws SQLException {
         String sql = null;
@@ -68,7 +74,7 @@ public class CategoryRepositoryImpl implements Repository<Category>{
             if (category.getIdCategory() == null){
                 try (ResultSet resultSet = preparedStatement.getGeneratedKeys()){
                     if (resultSet.next()){
-                        category.setIdCategory(resultSet.getLong("id_category"));
+                        category.setIdCategory(resultSet.getLong(1));
                     }
                 }
             }

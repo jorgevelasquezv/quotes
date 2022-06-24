@@ -12,6 +12,8 @@ public interface Repository<R> {
 
     R find(R r) throws SQLException;
 
+    R findByName(R r) throws SQLException;
+
     R save(R r) throws SQLException;
 
     void deleted(R r) throws SQLException;
