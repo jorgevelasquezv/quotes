@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%  String admin = request.getParameter("admin");
     String provider = request.getParameter("provider"); %>
 <!DOCTYPE html>
@@ -38,7 +40,7 @@
                         />
                     </div>
                     <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                        <% if(admin != null){%> <form  action= "/quotes/login-admin" method = "post"> <%}else{%> <form action= "/quotes/login-provider" method = "post"><%}; %> 
+                        <% if(admin != null){%> <form  action= "/quotes/login/admin" method = "post"> <%}else{%> <form action= "/quotes/login/provider" method = "post"><%}; %> 
                             
                             <div class="divider d-flex align-items-center my-4 justify-content-center">
                                 <h3 class="text-center fw-bold mx-3 mb-0"><% if(admin != null){
@@ -109,7 +111,7 @@
         </section>
             
 
-                <jsp:include page="./WEB-INF/templates/footer.html" />
+                <jsp:include page="../templates/footer.html" />
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

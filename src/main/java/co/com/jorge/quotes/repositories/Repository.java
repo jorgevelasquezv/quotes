@@ -10,12 +10,12 @@ public interface Repository<R> {
 
     List<R> listAll() throws SQLException;
 
-    R find(R r) throws SQLException;
+    R findById(R r) throws SQLException;
 
     R findByName(R r) throws SQLException;
 
     R save(R r) throws SQLException;
 
-    void deleted(R r) throws SQLException;
+    void delete(R r) throws SQLException;
 
 }

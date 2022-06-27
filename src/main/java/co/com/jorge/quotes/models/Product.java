@@ -1,9 +1,9 @@
 package co.com.jorge.quotes.models;
 
-import java.io.Serializable;
+
 import java.util.Date;
 
-public class Product implements Serializable {
+public class Product {
 
     private Long idProduct;
 

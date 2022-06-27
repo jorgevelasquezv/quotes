@@ -39,7 +39,7 @@ public class RequestProductRepositoryImpl implements Repository<RequestProduct> 
     }
 
     @Override
-    public RequestProduct find(RequestProduct requestProduct) throws SQLException {
+    public RequestProduct findById(RequestProduct requestProduct) throws SQLException {
         Long id = requestProduct.getIdRequest();
         RequestProduct foundRequestProduct = null;
         try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT *, p. FROM request as r WHERE r.id_request=?")){
@@ -88,7 +88,7 @@ public class RequestProductRepositoryImpl implements Repository<RequestProduct> 
     }
 
     @Override
-    public void deleted(RequestProduct requestProduct) throws SQLException {
+    public void delete(RequestProduct requestProduct) throws SQLException {
         try (PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM categories WHERE id_category=?")){
             preparedStatement.setLong(1, requestProduct.getIdRequest());
             preparedStatement.executeUpdate();

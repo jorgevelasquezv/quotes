@@ -36,11 +36,11 @@ public class ProviderRepositoryImpl implements Repository<Provider>{
     }
 
     @Override
-    public Provider find(Provider provider) throws SQLException {
-        String username = provider.getUsername();
+    public Provider findById(Provider provider) throws SQLException {
+        Long id = provider.getIdProvider();
         Provider foundProvider = null;
-        try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM providers as p WHERE p.username=?")){
-            preparedStatement.setString(1, username);
+        try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM providers as p WHERE p.id_providers=?")){
+            preparedStatement.setLong(1, id);
             try (ResultSet resultSet = preparedStatement.executeQuery()){
                 if (resultSet.next()){
                     foundProvider = createProvider(resultSet);
@@ -52,7 +52,17 @@ public class ProviderRepositoryImpl implements Repository<Provider>{
 
     @Override
     public Provider findByName(Provider provider) throws SQLException {
-        return null;
+        String username = provider.getUsername();
+        Provider foundProvider = null;
+        try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM providers as p WHERE p.username=?")){
+            preparedStatement.setString(1, username);
+            try (ResultSet resultSet = preparedStatement.executeQuery()){
+                if (resultSet.next()){
+                    foundProvider = createProvider(resultSet);
+                }
+            }
+        }
+        return foundProvider;
     }
 
     @Override
@@ -86,7 +96,7 @@ public class ProviderRepositoryImpl implements Repository<Provider>{
     }
 
     @Override
-    public void deleted(Provider provider) throws SQLException {
+    public void delete(Provider provider) throws SQLException {
         try (PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM providers WHERE id_providers=?")){
             preparedStatement.setLong(1, provider.getIdProvider());
             preparedStatement.executeUpdate();

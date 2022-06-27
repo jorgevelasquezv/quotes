@@ -1,12 +1,12 @@
 package co.com.jorge.quotes.filters;
 
 import co.com.jorge.quotes.services.ServiceJdbcException;
-import co.com.jorge.quotes.util.DataBaseConnectionDS;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletResponse;
 
-import javax.naming.NamingException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,25 +14,28 @@ import java.sql.SQLException;
 @WebFilter("/*")
 public class ConnectionFilter implements Filter {
 
+    @Inject
+    @Named("conn")
+    private Connection conn;
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-        try (Connection conn = DataBaseConnectionDS.getConnection()) {
+        try(Connection connRequest = this.conn) {
 
-            if (conn.getAutoCommit()) {
-                conn.setAutoCommit(false);
+            if (connRequest.getAutoCommit()) {
+                connRequest.setAutoCommit(false);
             }
 
             try {
-                request.setAttribute("conn", conn);
+                request.setAttribute("conn", connRequest);
                 chain.doFilter(request, response);
-                conn.commit();
+                connRequest.commit();
             } catch (SQLException | ServiceJdbcException e) {
-                conn.rollback();
+                connRequest.rollback();
                 ((HttpServletResponse)response).sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
                 e.printStackTrace();
             }
-        } catch (SQLException | NamingException throwables) {
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 

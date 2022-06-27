@@ -2,6 +2,7 @@ package co.com.jorge.quotes.repositories;
 
 import co.com.jorge.quotes.models.Category;
 import co.com.jorge.quotes.models.Product;
+import jakarta.inject.Inject;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,8 +11,6 @@ import java.util.List;
 public class ProductsRepositoryImpl implements Repository<Product> {
 
     private Connection conn;
-
-    private CategoryRepositoryImpl categoryRepository;
 
     public ProductsRepositoryImpl() {
     }
@@ -40,7 +39,7 @@ public class ProductsRepositoryImpl implements Repository<Product> {
     }
 
     @Override
-    public Product find(Product product) throws SQLException {
+    public Product findById(Product product) throws SQLException {
         Category category = product.getCategory();
         Product foundProduct = null;
         try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM products as p WHERE p.id_products=?")){
@@ -99,7 +98,7 @@ public class ProductsRepositoryImpl implements Repository<Product> {
     }
 
     @Override
-    public void deleted(Product product) throws SQLException {
+    public void delete(Product product) throws SQLException {
         try (PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM products WHERE id_products=?")){
             preparedStatement.setLong(1, product.getIdProduct());
             preparedStatement.executeUpdate();

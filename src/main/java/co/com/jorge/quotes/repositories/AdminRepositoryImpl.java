@@ -36,11 +36,11 @@ public class AdminRepositoryImpl implements Repository<Admin> {
     }
 
     @Override
-    public Admin find(Admin admin) throws SQLException {
-        String username = admin.getUsername();
+    public Admin findById(Admin admin) throws SQLException {
+        Long id = admin.getIdAdmin();
         Admin foundAdmin = null;
-        try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM admins as a WHERE a.username=?")){
-            preparedStatement.setString(1, username);
+        try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM admins as a WHERE a.id_admins=?")){
+            preparedStatement.setLong(1, id);
             try (ResultSet resultSet = preparedStatement.executeQuery()){
                 if (resultSet.next()){
                     foundAdmin = createAdmin(resultSet);
@@ -52,7 +52,17 @@ public class AdminRepositoryImpl implements Repository<Admin> {
 
     @Override
     public Admin findByName(Admin admin) throws SQLException {
-        return null;
+        String username = admin.getUsername();
+        Admin foundAdmin = null;
+        try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM admins as a WHERE a.username=?")){
+            preparedStatement.setString(1, username);
+            try (ResultSet resultSet = preparedStatement.executeQuery()){
+                if (resultSet.next()){
+                    foundAdmin = createAdmin(resultSet);
+                }
+            }
+        }
+        return foundAdmin;
     }
 
     @Override
@@ -82,7 +92,7 @@ public class AdminRepositoryImpl implements Repository<Admin> {
     }
 
     @Override
-    public void deleted(Admin admin) throws SQLException {
+    public void delete(Admin admin) throws SQLException {
         try (PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM admins WHERE id_admins=?")){
             preparedStatement.setLong(1, admin.getIdAdmin());
             preparedStatement.executeUpdate();

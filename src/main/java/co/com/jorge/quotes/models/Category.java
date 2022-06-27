@@ -1,8 +1,6 @@
 package co.com.jorge.quotes.models;
 
-import java.io.Serializable;
-
-public class Category implements Serializable {
+public class Category{
 
     private Long idCategory;
 

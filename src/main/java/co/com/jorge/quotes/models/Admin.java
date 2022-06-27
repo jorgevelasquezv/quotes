@@ -1,8 +1,6 @@
 package co.com.jorge.quotes.models;
 
-import java.io.Serializable;
-
-public class Admin implements Serializable {
+public class Admin {
 
     private Long idAdmin;
 

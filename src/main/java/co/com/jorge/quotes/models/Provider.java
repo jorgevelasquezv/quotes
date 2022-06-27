@@ -1,8 +1,6 @@
 package co.com.jorge.quotes.models;
 
-import java.io.Serializable;
-
-public class Provider implements Serializable {
+public class Provider {
 
     private Long idProvider;
 

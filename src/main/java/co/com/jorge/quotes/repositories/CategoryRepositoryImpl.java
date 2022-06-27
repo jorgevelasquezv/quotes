@@ -1,6 +1,7 @@
 package co.com.jorge.quotes.repositories;
 
 import co.com.jorge.quotes.models.Category;
+import jakarta.inject.Inject;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class CategoryRepositoryImpl implements Repository<Category>{
     }
 
     @Override
-    public Category find(Category category) throws SQLException {
+    public Category findById(Category category) throws SQLException {
         Long id = category.getIdCategory();
         Category foundCategory = null;
         try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM categories as c WHERE c.id_category=?")){
@@ -54,7 +55,17 @@ public class CategoryRepositoryImpl implements Repository<Category>{
 
     @Override
     public Category findByName(Category category) throws SQLException {
-        return null;
+        String name = category.getName();
+        Category foundCategory = null;
+        try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM categories as c WHERE c.name=?")){
+            preparedStatement.setString(1, name);
+            try (ResultSet resultSet = preparedStatement.executeQuery()){
+                if (resultSet.next()){
+                    foundCategory = createCategory(resultSet);
+                }
+            }
+        }
+        return foundCategory;
     }
 
     @Override
@@ -83,7 +94,7 @@ public class CategoryRepositoryImpl implements Repository<Category>{
     }
 
     @Override
-    public void deleted(Category category) throws SQLException {
+    public void delete(Category category) throws SQLException {
         try (PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM categories WHERE id_category=?")){
             preparedStatement.setLong(1, category.getIdCategory());
             preparedStatement.executeUpdate();

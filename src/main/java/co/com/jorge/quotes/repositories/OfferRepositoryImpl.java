@@ -40,7 +40,7 @@ public class OfferRepositoryImpl implements Repository<Offer> {
     }
 
     @Override
-    public Offer find(Offer offer) throws SQLException {
+    public Offer findById(Offer offer) throws SQLException {
         Long id = offer.getIdOffer();
         Offer foundOffer = null;
         try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM offers as o WHERE o.id_offers=?")){
@@ -87,7 +87,7 @@ public class OfferRepositoryImpl implements Repository<Offer> {
     }
 
     @Override
-    public void deleted(Offer offer) throws SQLException {
+    public void delete(Offer offer) throws SQLException {
         try (PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM offers WHERE id_offers=?")){
             preparedStatement.setLong(1, offer.getIdOffer());
             preparedStatement.executeUpdate();

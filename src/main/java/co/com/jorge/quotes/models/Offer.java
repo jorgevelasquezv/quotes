@@ -1,7 +1,12 @@
 package co.com.jorge.quotes.models;
 
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Named;
+
 import java.io.Serializable;
 
+@SessionScoped
+@Named
 public class Offer implements Serializable {
 
     private Long idOffer;
