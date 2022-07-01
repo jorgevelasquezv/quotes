@@ -1,5 +1,6 @@
 package co.com.jorge.quotes.repositories;
 
+import co.com.jorge.quotes.config.ConnectionMySQL;
 import co.com.jorge.quotes.models.Offer;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -13,7 +14,7 @@ import java.util.List;
 public class OfferRepositoryImpl implements Repository<Offer> {
 
     @Inject
-    @Named("conn")
+    @ConnectionMySQL
     private Connection conn;
 
     public OfferRepositoryImpl() {

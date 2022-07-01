@@ -1,23 +1,16 @@
 package co.com.jorge.quotes.services;
 
 import co.com.jorge.quotes.models.Category;
-import co.com.jorge.quotes.repositories.CategoryRepositoryImpl;
 import co.com.jorge.quotes.repositories.Repository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 @ApplicationScoped
 public class CategoryServiceImpl implements CategoryService{
-
-    @Inject
-    @Named("conn")
-    private Connection conn;
 
     @Inject
     private Repository<Category> categoryRepository;
@@ -27,12 +20,10 @@ public class CategoryServiceImpl implements CategoryService{
         Category category = new Category();
         category.setIdCategory(id);
 
-        categoryRepository.setConnection(conn);
-
         try {
             category = categoryRepository.findById(category);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throw new ServiceJdbcException(throwables.getMessage(), throwables.getCause());
         }
         return category;
     }
@@ -41,13 +32,10 @@ public class CategoryServiceImpl implements CategoryService{
     public Category findByName(String name) {
         Category category = new Category();
         category.setName(name);
-
-        categoryRepository.setConnection(conn);
-
         try {
             category = categoryRepository.findByName(category);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throw new ServiceJdbcException(throwables.getMessage(), throwables.getCause());
         }
         return category;
     }
@@ -56,32 +44,29 @@ public class CategoryServiceImpl implements CategoryService{
     public List<Category> findAll() {
         List<Category> categoryList = new ArrayList<>();
 
-        categoryRepository.setConnection(conn);
         try {
             categoryList = categoryRepository.listAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throw new ServiceJdbcException(throwables.getMessage(), throwables.getCause());
         }
         return categoryList;
     }
 
     @Override
     public void save(Category category) {
-        categoryRepository.setConnection(conn);
         try {
             categoryRepository.save(category);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throw new ServiceJdbcException(throwables.getMessage(), throwables.getCause());
         }
     }
 
     @Override
     public void delete(Category category) {
-        categoryRepository.setConnection(conn);
         try {
             categoryRepository.delete(category);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throw new ServiceJdbcException(throwables.getMessage(), throwables.getCause());
         }
     }
 }

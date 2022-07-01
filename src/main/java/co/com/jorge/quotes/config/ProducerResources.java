@@ -16,7 +16,7 @@ public class ProducerResources {
     private DataSource ds;
     @Produces
     @RequestScoped
-    @Named("conn")
+    @ConnectionMySQL
     private Connection createConnection() throws SQLException, NamingException {
         return ds.getConnection();
     }

@@ -1,5 +1,6 @@
 package co.com.jorge.quotes.repositories;
 
+import co.com.jorge.quotes.config.ConnectionMySQL;
 import co.com.jorge.quotes.models.Provider;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.SessionScoped;
@@ -14,7 +15,7 @@ import java.util.List;
 public class ProviderRepositoryImpl implements Repository<Provider>{
 
     @Inject
-    @Named("conn")
+    @ConnectionMySQL
     private Connection conn;
 
     public ProviderRepositoryImpl() {

@@ -1,5 +1,6 @@
 package co.com.jorge.quotes.repositories;
 
+import co.com.jorge.quotes.config.ConnectionMySQL;
 import co.com.jorge.quotes.models.Category;
 import co.com.jorge.quotes.models.Product;
 import co.com.jorge.quotes.models.RequestProduct;
@@ -16,7 +17,7 @@ import java.util.List;
 public class RequestProductRepositoryImpl implements Repository<RequestProduct> {
 
     @Inject
-    @Named("conn")
+    @ConnectionMySQL
     private Connection conn;
 
     public RequestProductRepositoryImpl() {

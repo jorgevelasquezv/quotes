@@ -1,8 +1,8 @@
 package co.com.jorge.quotes.filters;
 
+import co.com.jorge.quotes.config.ConnectionMySQL;
 import co.com.jorge.quotes.services.ServiceJdbcException;
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class ConnectionFilter implements Filter {
 
     @Inject
-    @Named("conn")
+    @ConnectionMySQL
     private Connection conn;
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
