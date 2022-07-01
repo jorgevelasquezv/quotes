@@ -19,9 +19,6 @@ public class CategoryRepositoryImpl implements Repository<Category>{
     public CategoryRepositoryImpl() {
     }
 
-//    public CategoryRepositoryImpl(Connection conn) {
-//        this.conn = conn;
-//    }
 
     @Override
     public void setConnection(Connection conn) {

@@ -22,10 +22,6 @@ public class RequestProductRepositoryImpl implements Repository<RequestProduct> 
     public RequestProductRepositoryImpl() {
     }
 
-//    public RequestProductRepositoryImpl(Connection conn) {
-//        this.conn = conn;
-//    }
-
     @Override
     public void setConnection(Connection conn) {
         this.conn = conn;

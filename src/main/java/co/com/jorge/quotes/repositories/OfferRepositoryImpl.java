@@ -2,7 +2,6 @@ package co.com.jorge.quotes.repositories;
 
 import co.com.jorge.quotes.models.Offer;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
@@ -19,10 +18,6 @@ public class OfferRepositoryImpl implements Repository<Offer> {
 
     public OfferRepositoryImpl() {
     }
-
-//    public OfferRepositoryImpl(Connection conn) {
-//        this.conn = conn;
-//    }
 
     @Override
     public void setConnection(Connection conn) {

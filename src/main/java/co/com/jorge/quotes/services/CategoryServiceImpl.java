@@ -3,22 +3,24 @@ package co.com.jorge.quotes.services;
 import co.com.jorge.quotes.models.Category;
 import co.com.jorge.quotes.repositories.CategoryRepositoryImpl;
 import co.com.jorge.quotes.repositories.Repository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationScoped
 public class CategoryServiceImpl implements CategoryService{
 
+    @Inject
+    @Named("conn")
     private Connection conn;
 
+    @Inject
     private Repository<Category> categoryRepository;
-
-    public CategoryServiceImpl(Connection conn) {
-        this.conn = conn;
-        this.categoryRepository = new CategoryRepositoryImpl();
-    }
 
     @Override
     public Category findById(Long id) {

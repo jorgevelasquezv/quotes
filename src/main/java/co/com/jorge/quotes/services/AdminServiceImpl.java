@@ -22,12 +22,6 @@ public class AdminServiceImpl implements AdminService{
     @Inject
     private Repository<Admin> adminRepository;
 
-
-//    public AdminServiceImpl() {
-//        this.conn = conn;
-//        this.adminRepository = new AdminRepositoryImpl();
-//    }
-
     @Override
     public Admin findByIdAdmin(Long id) {
         Admin admin = new Admin();

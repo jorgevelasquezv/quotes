@@ -3,6 +3,7 @@ package co.com.jorge.quotes.controllers;
 import co.com.jorge.quotes.models.Product;
 import co.com.jorge.quotes.models.RequestProduct;
 import co.com.jorge.quotes.services.*;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,14 +18,16 @@ import java.text.SimpleDateFormat;
 @WebServlet("/admin/request")
 public class SendRequestServlet extends HttpServlet {
 
+    @Inject
+    private ProductService productService;
+
+    @Inject
+    private RequestProductService requestProductService;
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestProduct requestProduct = new RequestProduct();
         Product product;
-
-        Connection conn = (Connection) req.getAttribute("conn");
-        ProductService productService = new ProductServiceImpl(conn);
-        RequestProductService requestProductService = new RequestProductServiceImpl(conn);
 
         SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
 

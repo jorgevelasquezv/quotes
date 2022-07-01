@@ -3,22 +3,24 @@ package co.com.jorge.quotes.services;
 import co.com.jorge.quotes.models.Product;
 import co.com.jorge.quotes.repositories.ProductsRepositoryImpl;
 import co.com.jorge.quotes.repositories.Repository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationScoped
 public class ProductServiceImpl implements ProductService {
 
+    @Inject
+    @Named("conn")
     private Connection conn;
 
+    @Inject
     private Repository<Product> productRepository;
-
-    public ProductServiceImpl(Connection conn) {
-        this.conn = conn;
-        this.productRepository = new ProductsRepositoryImpl();
-    }
 
     @Override
     public Product findById(Long id) {

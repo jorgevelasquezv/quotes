@@ -21,10 +21,6 @@ public class ProductsRepositoryImpl implements Repository<Product> {
     public ProductsRepositoryImpl() {
     }
 
-//    public ProductsRepositoryImpl(Connection conn) {
-//        this.conn = conn;
-//    }
-
     @Override
     public void setConnection(Connection conn) {
         this.conn= conn;

@@ -3,22 +3,24 @@ package co.com.jorge.quotes.services;
 import co.com.jorge.quotes.models.Offer;
 import co.com.jorge.quotes.repositories.OfferRepositoryImpl;
 import co.com.jorge.quotes.repositories.Repository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationScoped
 public class OfferServiceImpl implements OfferService{
 
+    @Inject
+    @Named("conn")
     private Connection conn;
 
+    @Inject
     private Repository<Offer> offerRepository;
-
-    public OfferServiceImpl(Connection conn) {
-        this.conn = conn;
-        this.offerRepository = new OfferRepositoryImpl();
-    }
 
     @Override
     public Offer findById(Long id) {

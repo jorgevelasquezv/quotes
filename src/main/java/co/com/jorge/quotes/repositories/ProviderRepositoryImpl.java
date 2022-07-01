@@ -20,10 +20,6 @@ public class ProviderRepositoryImpl implements Repository<Provider>{
     public ProviderRepositoryImpl() {
     }
 
-//    public ProviderRepositoryImpl(Connection conn) {
-//        this.conn = conn;
-//    }
-
     @Override
     public void setConnection(Connection conn) {
         this.conn = conn;

@@ -6,6 +6,7 @@ import co.com.jorge.quotes.services.OfferService;
 import co.com.jorge.quotes.services.OfferServiceImpl;
 import co.com.jorge.quotes.services.RequestProductService;
 import co.com.jorge.quotes.services.RequestProductServiceImpl;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,18 +19,21 @@ import java.sql.Connection;
 @WebServlet("/admin/decline")
 public class DeclineOfferServlet extends HttpServlet {
 
+    @Inject
+    private OfferService offerService;
+
+    @Inject
+    private RequestProductService requestProductService;
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection conn = (Connection) req.getAttribute("conn");
 
         Long idOffer = Long.valueOf(req.getParameterNames().nextElement());
 
-        OfferService offerService = new OfferServiceImpl(conn);
         Offer offer = offerService.findById(idOffer);
         offer.setState("declined");
         offerService.save(offer);
 
-        RequestProductService requestProductService = new RequestProductServiceImpl(conn);
         RequestProduct requestProduct = requestProductService.findById(offer.getIdRequest());
         requestProduct.setState(false);
 

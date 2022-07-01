@@ -19,10 +19,6 @@ public class AdminRepositoryImpl implements Repository<Admin> {
     public AdminRepositoryImpl() {
     }
 
-//    public AdminRepositoryImpl(Connection conn) {
-//        this.conn = conn;
-//    }
-
     @Override
     public void setConnection(Connection conn) {
         this.conn = conn;

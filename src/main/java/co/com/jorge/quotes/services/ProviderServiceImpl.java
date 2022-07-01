@@ -22,11 +22,6 @@ public class ProviderServiceImpl implements ProviderService{
     @Inject
     private Repository<Provider> providerRepository;
 
-//    public ProviderServiceImpl(Connection conn) {
-//        this.conn = conn;
-//        this.providerRepository = new ProviderRepositoryImpl();
-//    }
-
     @Override
     public Provider findById(Long id) {
         Provider provider = new Provider();
