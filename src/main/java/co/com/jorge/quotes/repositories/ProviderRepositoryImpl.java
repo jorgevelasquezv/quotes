@@ -1,6 +1,7 @@
 package co.com.jorge.quotes.repositories;
 
 import co.com.jorge.quotes.config.ConnectionMySQL;
+import co.com.jorge.quotes.config.RepositoryApp;
 import co.com.jorge.quotes.models.Provider;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.SessionScoped;
@@ -11,7 +12,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@ApplicationScoped
+@RepositoryApp
 public class ProviderRepositoryImpl implements Repository<Provider>{
 
     @Inject

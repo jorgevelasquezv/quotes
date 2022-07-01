@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21ed7f88-67f5-443b-8762-96ca486e2b0f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/config/ConnectionMySQL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/config/RepositoryApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/config/ProducerResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/config/ProducerResources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/DeclineOfferServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/DeclineOfferServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/filters/ConnectionFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/filters/ConnectionFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/AdminRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/AdminRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/CategoryRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/CategoryRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/OfferRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/OfferRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/ProductsRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/ProductsRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/ProviderRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/ProviderRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/RequestProductRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/RequestProductRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/AdminServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/OfferServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/OfferServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/ProviderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/ProviderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/RequestProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/RequestProductServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

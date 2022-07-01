@@ -1,6 +1,7 @@
 package co.com.jorge.quotes.repositories;
 
 import co.com.jorge.quotes.config.ConnectionMySQL;
+import co.com.jorge.quotes.config.RepositoryApp;
 import co.com.jorge.quotes.models.Admin;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -10,7 +11,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@ApplicationScoped
+@RepositoryApp
 public class AdminRepositoryImpl implements Repository<Admin> {
 
     @Inject

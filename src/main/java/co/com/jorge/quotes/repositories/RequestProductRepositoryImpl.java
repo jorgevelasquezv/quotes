@@ -1,6 +1,7 @@
 package co.com.jorge.quotes.repositories;
 
 import co.com.jorge.quotes.config.ConnectionMySQL;
+import co.com.jorge.quotes.config.RepositoryApp;
 import co.com.jorge.quotes.models.Category;
 import co.com.jorge.quotes.models.Product;
 import co.com.jorge.quotes.models.RequestProduct;
@@ -13,7 +14,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@ApplicationScoped
+@RepositoryApp
 public class RequestProductRepositoryImpl implements Repository<RequestProduct> {
 
     @Inject
