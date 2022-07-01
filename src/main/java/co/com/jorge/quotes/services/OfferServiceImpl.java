@@ -1,6 +1,7 @@
 package co.com.jorge.quotes.services;
 
 import co.com.jorge.quotes.config.ConnectionMySQL;
+import co.com.jorge.quotes.config.Service;
 import co.com.jorge.quotes.models.Offer;
 import co.com.jorge.quotes.repositories.Repository;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -10,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@ApplicationScoped
+@Service
 public class OfferServiceImpl implements OfferService{
 
     @Inject
