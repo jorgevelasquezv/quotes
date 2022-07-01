@@ -2,7 +2,6 @@ package co.com.jorge.quotes.controllers;
 
 import co.com.jorge.quotes.models.Offer;
 import co.com.jorge.quotes.services.OfferService;
-import co.com.jorge.quotes.services.OfferServiceImpl;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.List;
 
 @WebServlet("/provider/approved")
