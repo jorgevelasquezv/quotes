@@ -20,14 +20,12 @@ public class ConnectionFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-        try(Connection connRequest = this.conn) {
-
+        try{
+            Connection connRequest = this.conn;
             if (connRequest.getAutoCommit()) {
                 connRequest.setAutoCommit(false);
             }
-
             try {
-//                request.setAttribute("conn", connRequest);
                 chain.doFilter(request, response);
                 connRequest.commit();
             } catch (SQLException | ServiceJdbcException e) {

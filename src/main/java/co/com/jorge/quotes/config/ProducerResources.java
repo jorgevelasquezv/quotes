@@ -3,6 +3,7 @@ package co.com.jorge.quotes.config;
 import jakarta.annotation.Resource;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.inject.Disposes;
 import jakarta.enterprise.inject.Produces;
 
 import javax.naming.NamingException;
@@ -20,5 +21,9 @@ public class ProducerResources {
     @ConnectionMySQL
     private Connection createConnection() throws SQLException, NamingException {
         return ds.getConnection();
+    }
+
+    public void closeConnection(@Disposes @ConnectionMySQL Connection connection) throws SQLException {
+            connection.close();
     }
 }
