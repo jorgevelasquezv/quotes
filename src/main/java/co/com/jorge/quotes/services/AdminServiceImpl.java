@@ -1,12 +1,10 @@
 package co.com.jorge.quotes.services;
 
-import co.com.jorge.quotes.config.ConnectionMySQL;
 import co.com.jorge.quotes.models.Admin;
 import co.com.jorge.quotes.repositories.Repository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
