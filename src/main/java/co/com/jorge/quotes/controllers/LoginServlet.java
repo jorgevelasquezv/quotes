@@ -2,6 +2,7 @@ package co.com.jorge.quotes.controllers;
 
 import co.com.jorge.quotes.models.*;
 import co.com.jorge.quotes.services.*;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,10 +11,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 @WebServlet({ "/login", "/login/admin", "/login/provider"})
 public class LoginServlet extends HttpServlet {
+
+    @Inject
+    private AdminService adminService;
+
+    @Inject
+    private ProviderService providerService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,9 +31,6 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = req.getSession(true);
 
-        Connection conn = (Connection) req.getAttribute("conn");
-
-
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         resp.setContentType("text/html;charset=UTF-8");
@@ -38,7 +41,6 @@ public class LoginServlet extends HttpServlet {
         String path = req.getServletPath();
         Boolean isAdmin = path.endsWith("/admin");
         if (isAdmin){
-            AdminService adminService = new AdminServiceImpl(conn);
             Admin admin;
             admin = adminService.findByUsername(username);
             if (admin.getPassword().equals(password) ){
@@ -50,10 +52,10 @@ public class LoginServlet extends HttpServlet {
         }
         Boolean isProvider = path.endsWith("/provider");
         if(isProvider){
-            ProviderService providerService = new ProviderServiceImpl(conn);
             Provider provider = providerService.findByName(username);
             if (provider.getPassword().equals(password)){
                 session.setAttribute("rol", "provider");
+                session.setAttribute("id", provider.getIdProvider());
                 getServletContext().getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(req, resp);
             }else {
                 resp.sendRedirect(req.getContextPath() + "/provider");

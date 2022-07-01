@@ -26,7 +26,7 @@ public class SendRequestServlet extends HttpServlet {
         ProductService productService = new ProductServiceImpl(conn);
         RequestProductService requestProductService = new RequestProductServiceImpl(conn);
 
-        SimpleDateFormat formatDate= new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
             requestProduct.setInitialDate(formatDate.parse(req.getParameter("initialDate")));

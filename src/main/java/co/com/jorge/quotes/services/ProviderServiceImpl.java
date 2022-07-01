@@ -3,22 +3,29 @@ package co.com.jorge.quotes.services;
 import co.com.jorge.quotes.models.Provider;
 import co.com.jorge.quotes.repositories.ProviderRepositoryImpl;
 import co.com.jorge.quotes.repositories.Repository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationScoped
 public class ProviderServiceImpl implements ProviderService{
 
+    @Inject
+    @Named("conn")
     private Connection conn;
 
+    @Inject
     private Repository<Provider> providerRepository;
 
-    public ProviderServiceImpl(Connection conn) {
-        this.conn = conn;
-        this.providerRepository = new ProviderRepositoryImpl();
-    }
+//    public ProviderServiceImpl(Connection conn) {
+//        this.conn = conn;
+//        this.providerRepository = new ProviderRepositoryImpl();
+//    }
 
     @Override
     public Provider findById(Long id) {

@@ -1,21 +1,27 @@
 package co.com.jorge.quotes.repositories;
 
 import co.com.jorge.quotes.models.Admin;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationScoped
 public class AdminRepositoryImpl implements Repository<Admin> {
 
+    @Inject
+    @Named("conn")
     private Connection conn;
 
     public AdminRepositoryImpl() {
     }
 
-    public AdminRepositoryImpl(Connection conn) {
-        this.conn = conn;
-    }
+//    public AdminRepositoryImpl(Connection conn) {
+//        this.conn = conn;
+//    }
 
     @Override
     public void setConnection(Connection conn) {

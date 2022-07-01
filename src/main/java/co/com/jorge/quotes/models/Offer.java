@@ -17,6 +17,8 @@ public class Offer implements Serializable {
 
     private Long idProvider;
 
+    private String state;
+
     private String provider;
 
     private String product;
@@ -28,7 +30,7 @@ public class Offer implements Serializable {
     public Offer() {
     }
 
-    public Offer(Long idOffer, Long price, Long idRequest, Long idProvider, String provider, String product, String category, Integer quantity) {
+    public Offer(Long idOffer, Long price, Long idRequest, Long idProvider, String provider, String product, String category, Integer quantity, String state) {
         this.idOffer = idOffer;
         this.price = price;
         this.idRequest = idRequest;
@@ -103,6 +105,14 @@ public class Offer implements Serializable {
         this.quantity = quantity;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         return "Offer{" +
@@ -110,10 +120,11 @@ public class Offer implements Serializable {
                 ", price=" + price +
                 ", idRequest=" + idRequest +
                 ", idProvider=" + idProvider +
+                ", state='" + state + '\'' +
                 ", provider='" + provider + '\'' +
                 ", product='" + product + '\'' +
                 ", category='" + category + '\'' +
-                ", quantity='" + quantity + '\'' +
+                ", quantity=" + quantity +
                 '}';
     }
 }

@@ -33,9 +33,9 @@
                             <td>${item.finalDate}</td>
                             <c:if test="${rol == 'provider'}">
                                 <td>
-                                    <form method="post" action="/quotes/admin/request">
-                                        <input type="number" class="form-control" placeholder="Unit Price Of Offer" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        
+                                    <form method="post" action="/quotes/provider/send-offer">
+                                        <input type="number" name="price" class="form-control" placeholder="Unit Price Of Offer" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                                        <input type="hidden" name="idRequest" value="${item.idRequest}"/>
                                         <td>
                                             <input type="submit" class="btn btn-outline-info" id="button-addon2" value="Send" />
                                         </td>

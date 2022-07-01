@@ -3,21 +3,28 @@ package co.com.jorge.quotes.repositories;
 import co.com.jorge.quotes.models.Category;
 import co.com.jorge.quotes.models.Product;
 import co.com.jorge.quotes.models.RequestProduct;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationScoped
 public class RequestProductRepositoryImpl implements Repository<RequestProduct> {
 
+    @Inject
+    @Named("conn")
     private Connection conn;
 
     public RequestProductRepositoryImpl() {
     }
 
-    public RequestProductRepositoryImpl(Connection conn) {
-        this.conn = conn;
-    }
+//    public RequestProductRepositoryImpl(Connection conn) {
+//        this.conn = conn;
+//    }
 
     @Override
     public void setConnection(Connection conn) {
@@ -30,7 +37,8 @@ public class RequestProductRepositoryImpl implements Repository<RequestProduct> 
 
         try (Statement statement = conn.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT r.*, p.*, c.name as category FROM request as r " +
-                     "INNER JOIN  products as p ON (r.id_products = p.id_products) INNER JOIN categories as c ON (p.id_categories = c.id_category) ");){
+                     "INNER JOIN  products as p ON (r.id_products = p.id_products) INNER JOIN categories as c ON " +
+                     "(p.id_categories = c.id_category) ");){
             while (resultSet.next()){
                 list.add(createRequestProduct(resultSet));
             }
@@ -42,7 +50,9 @@ public class RequestProductRepositoryImpl implements Repository<RequestProduct> 
     public RequestProduct findById(RequestProduct requestProduct) throws SQLException {
         Long id = requestProduct.getIdRequest();
         RequestProduct foundRequestProduct = null;
-        try (PreparedStatement preparedStatement = conn.prepareStatement("SELECT *, p. FROM request as r WHERE r.id_request=?")){
+        try (PreparedStatement preparedStatement = conn.prepareStatement( "SELECT r.*, p.*, c.name as category FROM request as r " +
+                "INNER JOIN  products as p ON (r.id_products = p.id_products) INNER JOIN categories as c ON " +
+                "(p.id_categories = c.id_category) WHERE r.id_request=?")){
             preparedStatement.setLong(1, id);
             try (ResultSet resultSet = preparedStatement.executeQuery()){
                 if (resultSet.next()){

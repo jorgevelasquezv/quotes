@@ -21,7 +21,7 @@ public class OffersServlet extends HttpServlet {
         Connection conn = (Connection) req.getAttribute("conn");
 
         OfferService offerService = new OfferServiceImpl(conn);
-        List<Offer> offerList = offerService.find();
+        List<Offer> offerList = offerService.find().stream().filter(offer -> offer.getState().equals("slope")).toList();
         req.setAttribute("offers", offerList);
         getServletContext().getRequestDispatcher("/WEB-INF/pages/checkOffers.jsp").forward(req, resp);
     }

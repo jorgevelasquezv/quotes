@@ -12,7 +12,6 @@
                 <caption>Check Approved Offers</caption>
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Product</th>
                     <th scope="col">Category</th>
                     <th scope="col">Quantity</th>
@@ -22,17 +21,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%-- <% for (int i = 0; i < offers.size(); i++) { %> 
+                    <c:forEach var="item" items="${offers}">
                         <tr>
-                            <th scope="row"><%= i + 1  %></th>>
-                            <td><%= offers.get(i).getProduct() %></td>
-                            <td><%= offers.get(i).getCategory() %></td>
-                            <td><%= offers.get(i).getQuantity() %></td>
-                            <td><%= offers.get(i).getPrice() %></td>
-                            <td><%= offers.get(i).getPrice() * offers.get(i).getQuantity() %></td>
-                            <td><%= offers.get(i).getProvider() %></td>
-                        </tr>                            
-                    <% } %> --%>
+                            <td>${item.product} </td>
+                            <td>${item.category} </td>
+                            <td>${item.quantity} </td>
+                            <td>${item.price} </td>
+                            <td>${item.price * item.quantity} </td>
+                            <td>${item.provider}</td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </section>

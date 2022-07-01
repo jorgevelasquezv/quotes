@@ -1,21 +1,28 @@
 package co.com.jorge.quotes.repositories;
 
 import co.com.jorge.quotes.models.Provider;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationScoped
 public class ProviderRepositoryImpl implements Repository<Provider>{
 
+    @Inject
+    @Named("conn")
     private Connection conn;
 
     public ProviderRepositoryImpl() {
     }
 
-    public ProviderRepositoryImpl(Connection conn) {
-        this.conn = conn;
-    }
+//    public ProviderRepositoryImpl(Connection conn) {
+//        this.conn = conn;
+//    }
 
     @Override
     public void setConnection(Connection conn) {

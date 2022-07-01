@@ -17,6 +17,7 @@
                     <th scope="col">Price Unit</th>
                     <th scope="col">Price Total</th>
                     <th scope="col">Proveedor</th>
+                    <th scope="col">Approve</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,14 @@
                             <td>${item.price} </td>
                             <td>${item.price * item.quantity} </td>
                             <td>${item.provider}</td>
+                            <td>
+                                <form method = "post" action="/quotes/admin/approve">
+                                    <button type="submit" name="${item.idOffer}" class="mb-1 btn btn-outline-success">Aprove</button>
+                                </form>
+                                <form method = "post" action="/quotes/admin/decline">
+                                    <button type="submit" name="${item.idOffer}" class = "btn btn-outline-danger">Decline</button>
+                                </form>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>

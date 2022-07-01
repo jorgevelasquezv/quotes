@@ -1,22 +1,27 @@
 package co.com.jorge.quotes.repositories;
 
 import co.com.jorge.quotes.models.Category;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationScoped
 public class CategoryRepositoryImpl implements Repository<Category>{
 
+    @Inject
+    @Named("conn")
     private Connection conn;
 
     public CategoryRepositoryImpl() {
     }
 
-    public CategoryRepositoryImpl(Connection conn) {
-        this.conn = conn;
-    }
+//    public CategoryRepositoryImpl(Connection conn) {
+//        this.conn = conn;
+//    }
 
     @Override
     public void setConnection(Connection conn) {

@@ -5,59 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21ed7f88-67f5-443b-8762-96ca486e2b0f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/config/ProducerResources.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/ApprovedOffersServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/CheckRequestProductsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/HomeServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/LogoutServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/OffersServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/RequestProductsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/SendOfferServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/StockServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/filters/LoginFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/AdminService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/AdminServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/CategoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/LoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/LoginServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/OfferService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/OfferServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/ProviderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/ProviderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/RequestProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/RequestProductServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/request.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/ApproveOfferServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/DeclineOfferServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/EjemploJDBC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/ApprovedOffersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/ApprovedOffersServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/CheckRequestProductsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/CheckRequestProductsServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/RequestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/SendRequestServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/OffersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/OffersServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/SendOfferServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/SendOfferServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/SendRequestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/controllers/SendRequestServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/filters/ConnectionFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/filters/ConnectionFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/Offer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/Offer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/RequestProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/models/RequestProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/AdminRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/AdminRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/CategoryRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/CategoryRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/OfferRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/OfferRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/ProductsRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/ProductsRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/ProviderRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/ProviderRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/Repository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/RequestProductRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/repositories/RequestProductRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/CatalogService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/Service.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/util/DataBaseConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/header-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/request.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/AdminServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/ProviderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/jorge/quotes/services/ProviderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkApproved.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkApproved.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkOffers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkOffers.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkRequest.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/checkRequest.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +132,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

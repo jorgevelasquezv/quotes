@@ -3,23 +3,30 @@ package co.com.jorge.quotes.services;
 import co.com.jorge.quotes.models.Admin;
 import co.com.jorge.quotes.repositories.AdminRepositoryImpl;
 import co.com.jorge.quotes.repositories.Repository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationScoped
 public class AdminServiceImpl implements AdminService{
 
+    @Inject
+    @Named("conn")
     private Connection conn;
 
+    @Inject
     private Repository<Admin> adminRepository;
 
 
-    public AdminServiceImpl(Connection conn) {
-        this.conn = conn;
-        this.adminRepository = new AdminRepositoryImpl();
-    }
+//    public AdminServiceImpl() {
+//        this.conn = conn;
+//        this.adminRepository = new AdminRepositoryImpl();
+//    }
 
     @Override
     public Admin findByIdAdmin(Long id) {
