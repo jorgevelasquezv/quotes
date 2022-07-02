@@ -1,0 +1,16 @@
+:root{
+    --background: #1D62AB;
+    --background-ligth: #2c7cd1;
+    --background-button: rgb(19, 143, 247);
+    --text: #F7F7F7;
+}
+
+.main{
+    text-align: center;
+    align-self: center;
+}
+
+.main__title{
+    font-size: 9vh;
+    text-shadow: 3px 3px 2px var(--background-button);
+}

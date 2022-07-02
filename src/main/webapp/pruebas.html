@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="./assets/css/request.css" />
+
+        <script
+            src="https://kit.fontawesome.com/9092a5f080.js"
+            crossorigin="anonymous"
+        ></script>
+        <title>Quotes</title>
+    </head>
+    <body>
+
+<!-- <header class="header">
+    <nav
+        class="navbar navbar-expand-lg navbar-dark"
+        style="background-color: var(--background)"
+    >
+        <article class="container-fluid">
+            <a class="navbar-brand" href="#">Quotes</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <section class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"
+                            >Home</a
+                        >
+                    </li> 
+                    <li class="nav-item">
+                        <form class="nav-link"  method="post" action="admin.jsp">
+                            <input class="text-white bg-transparent border-0" type="submit" value="Request Products" name="requestProduct" />
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form class="nav-link" method="post" action="/quotes/offers">
+                            <input class="text-white bg-transparent border-0" type="submit" value="Check Offers" name="offers" />
+                        </form>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <form method="post" action="/quotes/stock">
+                            <input class="nav-link" type="submit" value="Stock Products" name="stock" />
+                        </form>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <form method="post" action="/quotes/submit-offers">
+                            <input class="nav-link" type="submit" value="Submit Offers" name="submitOffers" />
+                        </form>
+                    </li>
+                    
+                </ul>
+            </section>
+        </article>
+    </nav>
+</header> -->
+
+        <!-- <section class="container mt-5">
+            <form class="row g-3 needs-validation">
+                <div class="col-md-4 position-relative">
+                    <label for="name" class="form-label"
+                        >Product</label
+                    >
+                    <select
+                        type="text"
+                        class="form-select"
+                        id="name"
+                        name="name"
+                        value="${param.name}"
+                        required
+                    ><option selected value="">Choose...</option>
+                        <option>...</option></select>
+                    <div class="valid-tooltip">Looks good!</div>
+                </div>
+                <div class="col-md-4 position-relative">
+                    <label for="category" class="form-label"
+                        >Category</label
+                    >
+                    <select
+                        type="text"
+                        class="form-select"
+                        id="category"
+                        name="category"
+                        value="${param.category}"
+                        required
+                    ><option selected value="">Choose...</option>
+                        <option>...</option></select>
+                    <div class="valid-tooltip">Looks good!</div>
+                </div>
+                <div class="col-md-4 position-relative">
+                    <label for="stock" class="form-label"
+                        >Stock</label
+                    >
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="stock"
+                        name="stock"
+                        value="${param.stock}"
+                        required
+                    />
+                        <div class="invalid-tooltip">
+                            Please choose a unique and valid username.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 position-relative">
+                    <label for="requestProduct" class="form-label"
+                        >Request</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="requestProduct"
+                        name="requestProduct"
+                        value="${param.requestProduct}"
+                        required
+                    />
+                    <div class="invalid-tooltip">
+                        Please provide a valid city.
+                    </div>
+                </div>
+                <div class="col-md-4 position-relative">
+                    <label for="initialDate" class="form-label"
+                        >Initial Date</label
+                    >
+                    <input
+                        type="date"
+                        class="form-control"
+                        id="initialDate"
+                        name="initialDate"
+                        value="${param.initialDate}"
+                        required
+                    />
+                    <div class="invalid-tooltip">
+                        Please select a valid state.
+                    </div>
+                </div>
+                <div class="col-md-4 position-relative">
+                    <label for="finalDate" class="form-label"
+                        >Final Date</label
+                    >
+                    <input
+                        type="datetime-local"
+                        class="form-control"
+                        id="finalDate"
+                        name="finalDate"
+                        value="${param.finalDate}"
+                        required
+                    />
+                    <div class="invalid-tooltip">
+                        Please select a valid state.
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">
+                        Submit form
+                    </button>
+                </div>
+            </form>
+        </section> -->
+
+        <!-- <section class="container mt-5">
+            <table class="table table-hover">
+                <caption>Check Offers</caption>
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                    <th scope="col">Price Unit</th>
+                    <th scope="col">Send Offer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>
+                        <form method="post" action="/pruebas.html">
+                            <input type="number" class="form-control" placeholder="Unit Price For Offer" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            
+                            <td>
+                                <input type="submit" class="btn btn-outline-info" value="Send" id="button-addon2" />
+                            </td>
+                        </form>
+                    </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section> -->
+    <main class="main">
+    
+   
+    <section >
+            <h1 class="main__title">Requests and stock management at hand</h1>  
+    </section>
+    <section class="d-flex flex-column justify-content-center align-items-center mt-5 ">
+        <h3 class="my-4">Request Products</h3>
+            <form class="d-flex flex-column g-3 needs-validation" action="/quotes/admin/request" method="post">
+                <div class="row mb-3">
+                    <div class="col-md-6 position-relative">
+                        <label for="name" class="form-label"
+                            >Product</label
+                        >
+                        <select
+                            type="text"
+                            class="form-select"
+                            id="name"
+                            name="name"
+                            value="${param.name}"
+                            required
+                        >
+                            <c:forEach var="product" items="${stock}">
+                                <option>${product.name}</option>
+                            </c:forEach>
+                        </select>
+                        <div class="valid-tooltip">Looks good!</div>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                        <label for="request" class="form-label"
+                            >Request</label
+                        >
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="request"
+                            name="request"
+                            value="${param.request}"
+                            required
+                        />
+                        <div class="invalid-tooltip">
+                            Please provide a valid city.
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6 position-relative">
+                        <label for="initialDate" class="form-label"
+                            >Initial Date</label
+                        >
+                        <input
+                            type="date"
+                            class="form-control"
+                            id="initialDate"
+                            name="initialDate"
+                            value="${param.initialDate}"
+                            required
+                        />
+                        <div class="invalid-tooltip">
+                            Please select a valid state.
+                        </div>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                        <label for="finalDate" class="form-label"
+                            >Final Date</label
+                        >
+                        <input
+                            type="date"
+                            class="form-control"
+                            id="finalDate"
+                            name="finalDate"
+                            value="${param.finalDate}"
+                            required
+                        />
+                        <div class="invalid-tooltip">
+                            Please select a valid state.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-4">
+                    <button class="btn btn-primary" type="submit">
+                        Send Request
+                    </button>
+                </div>
+            </form>
+        </section>
+ </main>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
