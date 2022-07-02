@@ -107,7 +107,7 @@ public class CategoryRepositoryImpl implements Repository<Category>{
 
     private Category createCategory(ResultSet resultSet) throws SQLException {
         Category category = new Category();
-        category.setIdCategory(resultSet.getLong("id_categories"));
+        category.setIdCategory(resultSet.getLong("id_category"));
         category.setName(resultSet.getString("name"));
         return category;
     }

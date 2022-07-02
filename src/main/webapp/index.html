@@ -12,9 +12,11 @@
             <h1 class="header__title">WELCOME TO PRODUCT REQUESTS</h1>
         </header>
         <main class="main">
-        <form class="form" action="/quotes/login" method="get">
-            <input type="submit" class="main__link" name="admin" value="Login Admin">
-            <input type="submit" class="main__link" name="provider" value="Login Provider">
+        <form class="form" action="/quotes/login-form" method="post">
+            <input type="submit" class="form__link" name="login" value="Admin">
+        </form>
+        <form class="form" action="/quotes/login-form" method="post">
+            <input type="submit" class="form__link" name="login" value="Provider">
         </form>
         </main>
     </body>

@@ -1,8 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%  String admin = request.getParameter("admin");
-    String provider = request.getParameter("provider"); %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,21 +30,27 @@
                 <div
                     class="row d-flex justify-content-center align-items-center h-100"
                 >
-                    <div class="col-md-9 col-lg-6 col-xl-5">
+                    <figure class="col-md-9 col-lg-6 col-xl-5">
                         <img
                             src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                             class="img-fluid"
                             alt="Sample image"
                         />
-                    </div>
+                    </figure>
                     <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                        <% if(admin != null){%> <form  action= "/quotes/login/admin" method = "post"> <%}else{%> <form action= "/quotes/login/provider" method = "post"><%}; %> 
-                            
+                            <c:choose>
+                                <c:when test="${login == 'Admin'}">
+                                    <form  action= "/quotes/login/admin" method = "post">
+                                </c:when>
+                                <c:when test="${login == 'Provider'}">
+                                    <form action= "/quotes/login/provider" method = "post">
+                                </c:when>
+                            </c:choose>
                             <div class="divider d-flex align-items-center my-4 justify-content-center">
-                                <h3 class="text-center fw-bold mx-3 mb-0"><% if(admin != null){
-                                    %><%= admin%><%}else{
-                                        %><%=provider%><%};%></h3>
+
+                                <h3 class="text-center fw-bold mx-3 mb-0">Login ${login}</h3>
                             </div>
+
 
                             <!-- Username input -->
                             <div class="form-outline mb-4">
@@ -89,12 +93,6 @@
                                 >
                                     Login
                                 </button>
-                                <p class="small fw-bold mt-2 pt-1 mb-0">
-                                    Don't have an account?
-                                    <a href="#!" class="link-danger"
-                                        >Register</a
-                                    >
-                                </p>
                             </div>
                         </form>
                     </div>

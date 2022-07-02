@@ -22,11 +22,6 @@ public class LoginServlet extends HttpServlet {
     private ProviderService providerService;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(req, resp);
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession(true);
@@ -43,22 +38,22 @@ public class LoginServlet extends HttpServlet {
         if (isAdmin){
             Admin admin;
             admin = adminService.findByUsername(username);
-            if (admin.getPassword().equals(password) ){
+            if (admin != null && admin.getPassword().equals(password) ){
                 session.setAttribute("rol", "admin");
                 getServletContext().getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(req, resp);
             }else {
-                resp.sendRedirect(req.getContextPath() + "/admin");
+                resp.sendRedirect(getServletContext().getContextPath() + "/login-form?login=Admin");
             }
         }
         Boolean isProvider = path.endsWith("/provider");
         if(isProvider){
             Provider provider = providerService.findByName(username);
-            if (provider.getPassword().equals(password)){
+            if (provider != null && provider.getPassword().equals(password)){
                 session.setAttribute("rol", "provider");
                 session.setAttribute("id", provider.getIdProvider());
                 getServletContext().getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(req, resp);
             }else {
-                resp.sendRedirect(req.getContextPath() + "/provider");
+                resp.sendRedirect(getServletContext().getContextPath() + "/login-form?login=Provider");
             }
         }
     }

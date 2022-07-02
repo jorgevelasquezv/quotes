@@ -10,18 +10,24 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/admin/stock")
-public class StockServlet extends HttpServlet {
+@WebServlet("/admin/stock/update")
+public class UpdateProductServlet extends HttpServlet {
 
     @Inject
     private ProductService productService;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Product> productList = productService.find();
-        req.setAttribute("stock", productList);
-        getServletContext().getRequestDispatcher("/WEB-INF/pages/stockProducts.jsp").forward(req, resp);
+        Integer stock = Integer.valueOf(req.getParameter("stock"));
+        Long price = Long.valueOf(req.getParameter("price"));
+        Long id = Long.valueOf(req.getParameter("id"));
+        Product product = productService.findById(id);
+        product.setStock(stock);
+        product.setPrice(price);
+        System.out.println(product.toString());
+        productService.save(product);
+
+        getServletContext().getRequestDispatcher("/admin/stock").forward(req, resp);
     }
 }
